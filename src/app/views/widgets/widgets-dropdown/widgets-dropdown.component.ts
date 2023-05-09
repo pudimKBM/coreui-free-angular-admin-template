@@ -18,23 +18,13 @@ import { getStyle } from '@coreui/utils';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
-  chartDataArray: { id: number; }[] = [];
+  chartDataArray: { day: string, dataset: [string, number, number, number, number][] }[] = [];
   constructor(
     private http: HttpClient,
     private changeDetectorRef: ChangeDetectorRef,
   ) {
     
     this.chartDataArray = [
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-      { id: 10 }
     ];
   }
 
@@ -47,7 +37,15 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
 
   }
   fetchChartData(): void {
-    this.http.get<{ id: number }[]>('https://your-api-url.com/data')
+    const requestData = {
+      week_day: 0,
+      time_start: '00:00:00',
+      time_end: '00:10:00',
+      date_range_start: '01-01-2020',
+      date_range_end: '01-01-2023'
+    };
+  
+    this.http.post<{ day: string, dataset: [string, number, number, number, number][] }[]>('http://127.0.0.1:8000/market_data', requestData)
       .subscribe((data) => {
         this.chartDataArray = data;
         this.changeDetectorRef.detectChanges(); // inform Angular to detect changes to the chartDataArray
