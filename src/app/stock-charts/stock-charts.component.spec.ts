@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { StockChartsComponent } from './stock-charts.component';
+
+describe('StockChartsComponent', () => {
+  let component: StockChartsComponent;
+  let fixture: ComponentFixture<StockChartsComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ StockChartsComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(StockChartsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
