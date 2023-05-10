@@ -24,6 +24,7 @@ import { ChecksRadiosComponent } from './checks-radios/checks-radios.component';
 import { InputGroupsComponent } from './input-groups/input-groups.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ValidationComponent } from './validation/validation.component';
+import { ChartFormComponent } from './chart-form/chart-form.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ValidationComponent } from './validation/validation.component';
     ChecksRadiosComponent,
     InputGroupsComponent,
     LayoutComponent,
-    ValidationComponent
+    ValidationComponent,
+    ChartFormComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +55,8 @@ import { ValidationComponent } from './validation/validation.component';
     DropdownModule,
     SharedModule,
     ListGroupModule
-  ]
+  ],
+  exports: [CommonModule,ChartFormComponent]
 })
 export class CoreUIFormsModule {
 }

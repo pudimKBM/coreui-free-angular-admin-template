@@ -1,11 +1,16 @@
 <c-row >
-  <ng-container *ngFor="let chart of chartDataArray">
-    <c-col  xl="6">
-      <c-widget-stat-a class="mb-10">
-        <ng-template cTemplateId="widgetChartTemplate">
-          <app-stock-charts [chartData]="chart"></app-stock-charts>
-        </ng-template>
-      </c-widget-stat-a>
-    </c-col>
+  <ng-container>
+    <app-chart-form (submitForm)="handleFormSubmission($event)"></app-chart-form>
   </ng-container>
+</c-row>
+<c-row >  
+  <ng-container *ngFor="let chart of chartDataArray">
+  <c-col  xl="6">
+    <c-widget-stat-a class="mb-10">
+      <ng-template cTemplateId="widgetChartTemplate">
+         <app-stock-charts [chartData]="chart"></app-stock-charts> 
+      </ng-template>
+    </c-widget-stat-a>
+  </c-col>
+</ng-container>
 </c-row>

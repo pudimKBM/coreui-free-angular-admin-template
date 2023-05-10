@@ -9,6 +9,7 @@ import { SelectComponent } from './select/select.component';
 import { ChecksRadiosComponent } from './checks-radios/checks-radios.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ValidationComponent } from './validation/validation.component';
+import { ChartFormComponent } from './chart-form/chart-form.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,13 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         redirectTo: 'form-control'
+      },
+      {
+        path: 'chart-form',
+        component: ChartFormComponent,
+        data: {
+          title: 'Chart Form'
+        }
       },
       {
         path: 'form-control',

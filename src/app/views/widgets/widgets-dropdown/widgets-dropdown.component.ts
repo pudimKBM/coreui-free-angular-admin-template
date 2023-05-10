@@ -15,7 +15,7 @@ import { getStyle } from '@coreui/utils';
   selector: 'app-widgets-dropdown',
   templateUrl: './widgets-dropdown.component.html',
   styleUrls: ['./widgets-dropdown.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default
+  // changeDetection: ChangeDetectionStrategy.Default
 })
 export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
   chartDataArray: { day: string, dataset: [string, number, number, number, number][] }[] = [];
@@ -29,23 +29,24 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
   }
 
   ngOnInit(): void {
-    this.fetchChartData();
+    console.log("data")
+    
   }
 
   ngAfterContentInit(): void {
-   
+    // this.fetchChartData();
 
   }
-  fetchChartData(): void {
-    const requestData = {
-      week_day: 0,
-      time_start: '00:00:00',
-      time_end: '00:10:00',
-      date_range_start: '01-01-2020',
-      date_range_end: '01-01-2023'
-    };
+
+  handleFormSubmission(formData: any) {
+    // Perform actions with the submitted form data
+    this.fetchChartData(formData);
+    console.log(formData);
+    // Trigger any desired actions or update parent component's state
+  }
   
-    this.http.post<{ day: string, dataset: [string, number, number, number, number][] }[]>('http://127.0.0.1:8000/market_data', requestData)
+  fetchChartData(formData: any): void {
+    this.http.post<{ day: string, dataset: [string, number, number, number, number][] }[]>('http://127.0.0.1:8000/market_data', formData)
       .subscribe((data) => {
         this.chartDataArray = data;
         this.changeDetectorRef.detectChanges(); // inform Angular to detect changes to the chartDataArray

@@ -102,96 +102,96 @@ export class StockChartsComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     const upColor = '#ec0000';
-const upBorderColor = '#8A0000';
-const downColor = '#00da3c';
-const downBorderColor = '#008F28';
+    const upBorderColor = '#8A0000';
+    const downColor = '#00da3c';
+    const downBorderColor = '#008F28';
 
-// Each item: open，close，lowest，highest
-const data0 = splitData(this.chartData["dataset"]);
+    // Each item: open，close，lowest，highest
+    const data0 = splitData(this.chartData["dataset"]);
 
-function splitData(rawData: (number | string)[][]) {
-  const categoryData = [];
-  const values = [];
-  for (var i = 0; i < rawData.length; i++) {
-    categoryData.push(rawData[i].splice(0, 1)[0]);
-    values.push(rawData[i]);
-  }
-  return {
-    categoryData: categoryData,
-    values: values
-  };
-}
+    function splitData(rawData: (number | string)[][]) {
+      const categoryData = [];
+      const values = [];
+      for (var i = 0; i < rawData.length; i++) {
+        categoryData.push(rawData[i].splice(0, 1)[0]);
+        values.push(rawData[i]);
+      }
+      return {
+        categoryData: categoryData,
+        values: values
+      };
+    }
 
     console.log("init")
     // this.chartElements.changes.subscribe(() => {
-      this.chartElements.toArray().forEach((chartElement) => {
-        const chartInstance = echarts.init(chartElement.nativeElement);
-        console.log("init")
+    this.chartElements.toArray().forEach((chartElement) => {
+      const chartInstance = echarts.init(chartElement.nativeElement);
+      console.log("init")
 
-        // Set up chart options and data here...
-        const option = {
-          title: {
-            text: this.chartData.day,
-            left: 0
+      // Set up chart options and data here...
+      const option = {
+        title: {
+          text: this.chartData.day,
+          left: 0
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross'
+          }
+        },
+        grid: {
+          left: '10%',
+          right: '10%',
+          bottom: '15%'
+        },
+        xAxis: {
+          type: 'category',
+          data: data0.categoryData,
+          boundaryGap: false,
+          axisLine: { onZero: false },
+          splitLine: { show: false },
+          min: 'dataMin',
+          max: 'dataMax'
+        },
+        yAxis: {
+          scale: true,
+          splitArea: {
+            show: true
+          }
+        },
+        dataZoom: [
+          {
+            type: 'inside',
+            start: 0,
+            end: 100
           },
-          tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-              type: 'cross'
+          {
+            show: true,
+            type: 'slider',
+            top: '90%',
+            start: 50,
+            end: 100
+          }
+        ],
+        series: [
+          {
+            name: this.chartData.day,
+            type: 'candlestick',
+            data: data0.values,
+            itemStyle: {
+              color: upColor,
+              color0: downColor,
+              borderColor: upBorderColor,
+              borderColor0: downBorderColor
             }
-          },
-          grid: {
-            left: '10%',
-            right: '10%',
-            bottom: '15%'
-          },
-          xAxis: {
-            type: 'category',
-            data: data0.categoryData,
-            boundaryGap: false,
-            axisLine: { onZero: false },
-            splitLine: { show: false },
-            min: 'dataMin',
-            max: 'dataMax'
-          },
-          yAxis: {
-            scale: true,
-            splitArea: {
-              show: true
-            }
-          },
-          dataZoom: [
-            {
-              type: 'inside',
-              start: 0,
-              end: 100
-            },
-            {
-              show: true,
-              type: 'slider',
-              top: '90%',
-              start: 50,
-              end: 100
-            }
-          ],
-          series: [
-            {
-              name: this.chartData.day,
-              type: 'candlestick',
-              data: data0.values,
-              itemStyle: {
-                color: upColor,
-                color0: downColor,
-                borderColor: upBorderColor,
-                borderColor0: downBorderColor
-              }
-             
-            }
-          ]
-        };
 
-        chartInstance.setOption(option);
-      });
+          }
+        ]
+      };
+
+      chartInstance.setOption(option);
+    });
     // });
   }
 }

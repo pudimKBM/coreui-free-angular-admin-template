@@ -121,6 +121,10 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-notes' },
     children: [
       {
+        name: 'Chart Form',
+        url:'/forms/chart-form' 
+      },
+      {
         name: 'Form Control',
         url: '/forms/form-control'
       },

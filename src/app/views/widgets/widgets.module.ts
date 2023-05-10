@@ -21,10 +21,10 @@ import { WidgetsBrandComponent } from './widgets-brand/widgets-brand.component';
 import { WidgetsDropdownComponent } from './widgets-dropdown/widgets-dropdown.component';
 import { WidgetsEComponent } from './widgets-e/widgets-e.component';
 import { StockChartsComponent } from 'src/app/stock-charts/stock-charts.component';
-
-
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
+import { ChartFormComponent } from '../forms/chart-form/chart-form.component';
+import { CoreUIFormsModule } from '../forms/forms.module';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,10 @@ import { HttpClientModule } from '@angular/common/http';
     CardModule,
     DocsComponentsModule,
     ProgressModule,
-    ChartjsModule
+    ChartjsModule,
+    FormsModule,
+    CoreUIFormsModule
+    
   ],
   exports: [
     WidgetsBrandComponent,

@@ -1,0 +1,39 @@
+
+<c-card>
+<form [formGroup]="requestForm" (ngSubmit)="onSubmit()" class="row g-3 m-3">
+    <c-row>
+      <label cLabel for="autoSizingSelect">Filter Form</label>
+    </c-row>
+    <c-col [md]="2">
+      <label cLabel for="inputDateStart">Date Start</label>
+      <input cFormControl id="inputDateStart" type="text" formControlName="date_range_start" />
+    </c-col>
+    <c-col [md]="2">
+      <label cLabel for="inputDateEnd">Date End</label>
+      <input cFormControl id="inputDateEnd" type="text" formControlName="date_range_end" />
+    </c-col>
+    <c-col [md]="2">
+      <label cLabel for="inputTimeStart">Time Start</label>
+      <input cFormControl id="inputTimeStart" type="text" formControlName="time_start" />
+    </c-col>
+    <c-col [md]="2">
+      <label cLabel for="inputTimeEnd">Time End</label>
+      <input cFormControl id="inputTimeEnd" type="text" formControlName="time_end" />
+    </c-col>
+    <c-col xs="auto">
+      <label cLabel for="autoSizingSelect">Preference</label>
+      <select cSelect id="autoSizingSelect" formControlName="week_day">
+        <option value=None> todos</option>
+        <option value=0>segunda</option>
+        <option value=1>Terca</option>
+        <option value=2>Quarta</option>
+        <option value=3>Quinta</option>
+        <option value=4>Sexta</option>
+      </select>
+    </c-col>
+    <c-col xs="auto" class="mt-5">
+      <button cButton type="submit">Submit</button>
+    </c-col>
+  </form>
+</c-card>
+  

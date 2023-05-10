@@ -22,6 +22,7 @@ import { DashboardComponent } from './dashboard.component';
 
 import { WidgetsModule } from '../widgets/widgets.module';
 import { StockChartsComponent } from '../../stock-charts/stock-charts.component'; // import StockChartsComponent
+import { CoreUIFormsModule } from '../forms/forms.module';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { StockChartsComponent } from '../../stock-charts/stock-charts.component'
     ChartjsModule,
     AvatarModule,
     TableModule,
-    WidgetsModule
+    WidgetsModule,
+    CoreUIFormsModule
   ],
   declarations: [
     DashboardComponent
