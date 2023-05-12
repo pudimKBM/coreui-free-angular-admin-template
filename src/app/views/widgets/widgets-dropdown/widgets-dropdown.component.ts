@@ -18,7 +18,7 @@ import { getStyle } from '@coreui/utils';
   // changeDetection: ChangeDetectionStrategy.Default
 })
 export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
-  chartDataArray: { day: string, dataset: [string, number, number, number, number][] }[] = [];
+  chartDataArray: { day: string, dataset: [string, string, string, string, string][] }[] = [];
   constructor(
     private http: HttpClient,
     private changeDetectorRef: ChangeDetectorRef,
@@ -46,7 +46,7 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
   }
   
   fetchChartData(formData: any): void {
-    this.http.post<{ day: string, dataset: [string, number, number, number, number][] }[]>('http://127.0.0.1:8000/market_data', formData)
+    this.http.post<{ day: string, dataset: [string, string, string, string, string][] }[]>('http://127.0.0.1:8000/market_data', formData)
       .subscribe((data) => {
         this.chartDataArray = data;
         this.changeDetectorRef.detectChanges(); // inform Angular to detect changes to the chartDataArray

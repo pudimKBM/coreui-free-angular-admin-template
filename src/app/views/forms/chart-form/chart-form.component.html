@@ -6,19 +6,23 @@
     </c-row>
     <c-col [md]="2">
       <label cLabel for="inputDateStart">Date Start</label>
-      <input cFormControl id="inputDateStart" type="text" formControlName="date_range_start" />
+      <input cFormControl id="inputDateStart" type="date" formControlName="date_range_start" />
     </c-col>
     <c-col [md]="2">
       <label cLabel for="inputDateEnd">Date End</label>
-      <input cFormControl id="inputDateEnd" type="text" formControlName="date_range_end" />
+      <input cFormControl id="inputDateEnd" type="date" formControlName="date_range_end" />
     </c-col>
     <c-col [md]="2">
       <label cLabel for="inputTimeStart">Time Start</label>
-      <input cFormControl id="inputTimeStart" type="text" formControlName="time_start" />
+      <input cFormControl id="inputTimeStart" type="time" formControlName="time_start" step="2" />
     </c-col>
     <c-col [md]="2">
       <label cLabel for="inputTimeEnd">Time End</label>
-      <input cFormControl id="inputTimeEnd" type="text" formControlName="time_end" />
+      <input cFormControl id="inputTimeEnd" type="time" formControlName="time_end" step="2" />
+    </c-col>
+    <c-col [md]="2">
+      <label cLabel for="inputTimeEnd">timeframe</label>
+      <input cFormControl id="inputTimeEnd" type="number" formControlName="timeframe" />
     </c-col>
     <c-col xs="auto">
       <label cLabel for="autoSizingSelect">Preference</label>
