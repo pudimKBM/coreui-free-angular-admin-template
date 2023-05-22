@@ -1,0 +1,22 @@
+<c-card class="d-inline-flex">
+    <div class="p-3">
+      <form [gutter]="3" [formGroup]="pinpointForm" cForm (ngSubmit)="onSubmit()" cRow>
+        <c-row class="p-3 d-flex justify-content-center">
+          <c-col>
+            <label cLabel for="pinpoint_name">
+              Pinpoint Name
+            </label>
+            <input cFormControl id="pinpoint_name" formControlName="pinpoint_name" placeholder="Pinpoint_name" type="text" />
+          </c-col>
+        </c-row>
+        <c-row class="p-3 d-flex justify-content-end">
+          <c-col xs="auto" class="">
+            <button cButton type="submit">
+              Submit
+            </button>
+          </c-col>
+        </c-row>
+      </form>
+    </div>
+  </c-card>
+  

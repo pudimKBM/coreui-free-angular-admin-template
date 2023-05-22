@@ -1,3 +1,40 @@
 .mb-10{
     margin-bottom: 10px;
 }
+.toggle-icon {
+    height: 3.5rem !important;
+    width: 2.5rem !important;
+    cursor: pointer;
+    
+}
+  
+.toggle-icon:hover {
+  color: #1976d2;
+}
+
+.toggle-icon:active {
+  transform: scale(0.9);
+}
+
+.toggle-icon.closed {
+  transform: rotate(-180deg);
+}
+  
+
+.floating-pinpoint-form {
+  position: fixed;
+  z-index: 99;
+  top: 50%;
+  right: -40%;
+  transform: translateY(-50%);
+}
+
+.toggle-icon-container {
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+  position: fixed;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+}

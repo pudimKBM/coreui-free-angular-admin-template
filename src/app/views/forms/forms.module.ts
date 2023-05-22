@@ -25,6 +25,7 @@ import { InputGroupsComponent } from './input-groups/input-groups.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ValidationComponent } from './validation/validation.component';
 import { ChartFormComponent } from './chart-form/chart-form.component';
+import { PinpointFormComponent } from './pinpoint-form/pinpoint-form.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ChartFormComponent } from './chart-form/chart-form.component';
     InputGroupsComponent,
     LayoutComponent,
     ValidationComponent,
-    ChartFormComponent
+    ChartFormComponent,
+    PinpointFormComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +58,7 @@ import { ChartFormComponent } from './chart-form/chart-form.component';
     SharedModule,
     ListGroupModule
   ],
-  exports: [CommonModule,ChartFormComponent]
+  exports: [CommonModule,ChartFormComponent,PinpointFormComponent]
 })
 export class CoreUIFormsModule {
 }

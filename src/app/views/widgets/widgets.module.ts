@@ -12,6 +12,7 @@ import {
 } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { ChartjsModule } from '@coreui/angular-chartjs';
+import { PopoverModule } from '@coreui/angular';
 
 import { DocsComponentsModule } from '@docs-components/docs-components.module';
 
@@ -49,7 +50,8 @@ import { CoreUIFormsModule } from '../forms/forms.module';
     ProgressModule,
     ChartjsModule,
     FormsModule,
-    CoreUIFormsModule
+    CoreUIFormsModule,
+    PopoverModule
     
   ],
   exports: [

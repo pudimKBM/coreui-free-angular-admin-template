@@ -10,6 +10,7 @@ import { ChecksRadiosComponent } from './checks-radios/checks-radios.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ValidationComponent } from './validation/validation.component';
 import { ChartFormComponent } from './chart-form/chart-form.component';
+import { PinpointFormComponent } from './pinpoint-form/pinpoint-form.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,13 @@ const routes: Routes = [
         component: ChartFormComponent,
         data: {
           title: 'Chart Form'
+        }
+      },
+      {
+        path: 'pinpoint-form',
+        component: PinpointFormComponent,
+        data: {
+          title: 'Pinpoint Form'
         }
       },
       {

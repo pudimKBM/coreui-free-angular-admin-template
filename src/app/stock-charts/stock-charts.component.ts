@@ -26,9 +26,9 @@ export class StockChartsComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     const upColor = '#00da3c';
-    const upBorderColor = '#8A0000';
+    const upBorderColor = '#008F28';
     const downColor = '#ec0000';
-    const downBorderColor = '#008F28';
+    const downBorderColor = '#8A0000';
 
     // Each item: open，close，lowest，highest
     const data0 = splitData(this.chartData["dataset"]);
@@ -55,11 +55,11 @@ export class StockChartsComponent implements AfterViewInit {
       };
     }
 
-    console.log(data0)
+    // console.log(data0)
     // this.chartElements.changes.subscribe(() => {
     this.chartElements.toArray().forEach((chartElement) => {
       const chartInstance = echarts.init(chartElement.nativeElement);
-      console.log("init")
+      // console.log("init")
 
       // Set up chart options and data here...
       const option = {

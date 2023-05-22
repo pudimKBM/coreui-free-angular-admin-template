@@ -1,16 +1,33 @@
-<c-row >
+<c-row>
   <ng-container>
     <app-chart-form (submitForm)="handleFormSubmission($event)"></app-chart-form>
   </ng-container>
 </c-row>
-<c-row >  
-  <ng-container *ngFor="let chart of chartDataArray">
-  <c-col  xl="6">
-    <c-widget-stat-a class="mb-10">
-      <ng-template cTemplateId="widgetChartTemplate">
-         <app-stock-charts [chartData]="chart"></app-stock-charts> 
-      </ng-template>
-    </c-widget-stat-a>
-  </c-col>
-</ng-container>
+<c-row >
+  <ng-container>
+    <span (click)="togglePinpointFormVisibility()" class="toggle-icon-container toggle-icon" [cPopoverTrigger]="'hover'" cPopover="Click Here to Save Your pinpoints" cPopoverPlacement="top" color="secondary">
+  <svg [cIcon]="icons.cilSave" (click)="togglePinpointFormVisibility()"  class="toggle-icon" size="xl" title="List Icon">
+    {{ isPinpointFormVisible ? 'expand_less' : 'expand_more' }}
+  </svg>
+</span>
+   <app-pinpoint-form
+      [pinpoint_input_data]="pinpointForm"
+      *ngIf="isPinpointFormVisible"
+      (submitForm)="handlePinpointFormSubmission($event)"
+      class="floating-pinpoint-form"
+    ></app-pinpoint-form>
+  </ng-container>
 </c-row>
+<c-row>
+  <ng-container *ngFor="let chart of chartDataArray">
+    <c-col xl="6">
+      <c-widget-stat-a class="mb-10">
+        <input type="checkbox" [checked]="chart.selected" (change)="toggleChartSelection(chart)">
+        <ng-template cTemplateId="widgetChartTemplate">
+          <app-stock-charts [chartData]="chart"></app-stock-charts>
+        </ng-template>
+      </c-widget-stat-a>
+    </c-col>
+  </ng-container>
+</c-row>
+
